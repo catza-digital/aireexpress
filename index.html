@@ -109,6 +109,14 @@
             transform: translateY(-5px);
         }
 
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
         .card-title {
             font-size: 1.25rem;
             font-weight: 600;
@@ -396,7 +404,7 @@
         const WA_NUMBER = "59162139098";
         
         const products = [
-            { id: 1, name: "Limpieza de Aires acondicionados", price: 150 },
+            { id: 1, name: "Limpieza de Aires acondicionados", price: 150, image: "https://drducto.com/wp-content/uploads/2022/08/blog1-1.jpg" },
             { id: 2, name: "Instalación de aires", price: 400 },
             { id: 3, name: "Carga de refrigerante", price: 350 },
             { id: 4, name: "Cambio de capacitor", price: 200 },
@@ -415,6 +423,7 @@
             const grid = document.getElementById("product-grid");
             grid.innerHTML = products.map(prod => `
                 <div class="card">
+                    ${prod.image ? `<img src="${prod.image}" class="card-img" alt="${prod.name}">` : ''}
                     <h3 class="card-title">${prod.name}</h3>
                     <div class="card-price">${prod.price} BS</div>
                     <button class="btn" onclick="addToCart(${prod.id})">Agregar al pedido</button>
